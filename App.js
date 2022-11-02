@@ -24,12 +24,10 @@ const App = () => {
 
   return (
     <>
-    {/* <Splash/> */}
     <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
                 initialRouteName={'Splash'}>
-                {/* <Stack.Screen name="drawerNavigation" component={drawerNavigation} /> */}
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="Editor" component={Editor} />
             </Stack.Navigator>

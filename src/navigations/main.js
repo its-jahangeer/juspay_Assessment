@@ -3,7 +3,6 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 
-// import drawerNavigation from './drawerNavigation';
 import Splash from '../screens/splashscreen/splash';
 import Editor from '../screens/editorscreen/Editor';
 
