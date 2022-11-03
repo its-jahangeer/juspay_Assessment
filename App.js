@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 // import { AppNavigator } from './src/navigations/main';
 import Splash from './src/screens/splashscreen/splash';
-import Editor from './src/screens/editorscreen/Editor';
+import Editor from './src/screens/editorscreen/Index';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
