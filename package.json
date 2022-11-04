@@ -14,7 +14,6 @@
     "@react-navigation/native": "^5.9.8",
     "@react-navigation/stack": "^5.14.9",
     "react": "17.0.2",
-    "react-beautiful-dnd": "^13.1.0",
     "react-native": "0.67.0",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-reanimated": "^2.12.0",

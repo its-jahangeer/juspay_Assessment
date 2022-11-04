@@ -3,7 +3,7 @@ import {SafeAreaView, Text, Image,FlatList,View, TouchableOpacity} from 'react-n
 
 const Listscreen = () => {
 
-    const data = ["Move X to 50","Move Y to 50","Rotate 360","go to (0,0)","Move X=50,y=50","go to random position","Say Hello","Say Hello For 1 Sec","Increase Size","Dec Size","Repeat"];
+  const data = ["Move X to 50","Move Y to 50","Rotate 360","go to (0,0)","Move X=50,y=50","go to random position","Say Hello","Say Hello For 1 Sec","Increase Size","Dec Size","Repeat"];
 
    const renderList = ({ item, index }) => {
        
