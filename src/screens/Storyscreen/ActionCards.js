@@ -1,5 +1,7 @@
 import React,{useState} from 'react';
 import {SafeAreaView, Text, Image,FlatList,View, TouchableOpacity,StyleSheet} from 'react-native';
+import Material from 'react-native-vector-icons/MaterialCommunityIcons';
+
 
 const Listscreen = () => {
      
@@ -45,6 +47,7 @@ const Listscreen = () => {
    const renderList = ({ item, index }) => {
        
         return (
+           <>
                 <TouchableOpacity
                   style={styles.cardContainer}
                   onPress={() => removeItem(item.id)}
@@ -53,6 +56,10 @@ const Listscreen = () => {
                     <Text style={styles.text}>{item.name}</Text>
                   </View>
                 </TouchableOpacity>
+                <TouchableOpacity style={{backgroundColor:'#5394fc',width:25,height:25,borderRadius:25/2,justifyContent:'center',position:"absolute",top:-5,right:1}}>
+                <Material name="delete" size={16} color="#fff" style={{alignSelf:'center'}} />
+              </TouchableOpacity>
+              </>
               );
         
     }
@@ -83,7 +90,7 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
       height: 100,
-    //   width: width * 0.5,
+      width: 120,
       marginRight: 8,
     },
     card: {

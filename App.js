@@ -14,6 +14,7 @@ import {
 // import { AppNavigator } from './src/navigations/main';
 import Splash from './src/screens/splashscreen/splash';
 import Editor from './src/screens/editorscreen/Index';
+import MainEditor from './src/screens/Storyscreen/mainEditor';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -27,9 +28,10 @@ const App = () => {
     <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
-                initialRouteName={'Splash'}>
+                initialRouteName={'MainEditor'}>
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="Editor" component={Editor} />
+                <Stack.Screen name="MainEditor" component={MainEditor} />
             </Stack.Navigator>
         </NavigationContainer>
     </>
