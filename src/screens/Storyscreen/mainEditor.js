@@ -6,6 +6,7 @@ import FA5 from 'react-native-vector-icons/FontAwesome5';
 import Listscreen from './ActionCards';
 import TopBar from '../../common/topbar';
 import Draggable from 'react-native-draggable';
+import Axis from './Axis';
 
 
 const MainEditor = (props) => {
@@ -31,14 +32,7 @@ const MainEditor = (props) => {
          </TouchableOpacity>
 
          </View>
-          <View style={{height:'10%',margin:7,backgroundColor:'white',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
-          <Text style={{fontSize:20,fontWeight:'600',color:'#000'}}>Sprit</Text>
-          <Text style={{borderWidth:1,padding:1,borderRadius:10,paddingHorizontal:9}}>00</Text>
-          <Text style={{fontSize:20,fontWeight:'600',color:'#000'}}>X</Text>
-          <Text style={{borderWidth:1,padding:2,borderRadius:10,paddingHorizontal:9}}>00</Text>
-          <Text style={{fontSize:20,fontWeight:'600',color:'#000'}}>Y</Text>
-          <Text style={{borderWidth:1,padding:2,borderRadius:10,paddingHorizontal:9}}>00</Text>
-         </View>
+         <Axis/>
           <View style={{height:'20%',margin:7,backgroundColor:'white'}}>
          <Listscreen/>
         </View>

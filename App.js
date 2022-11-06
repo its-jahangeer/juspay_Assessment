@@ -28,7 +28,7 @@ const App = () => {
     <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
-                initialRouteName={'MainEditor'}>
+                initialRouteName={'Splash'}>
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="Editor" component={Editor} />
                 <Stack.Screen name="MainEditor" component={MainEditor} />
