@@ -7,34 +7,34 @@
  */
 
 import React from 'react';
-import {
-  Image,
-  SafeAreaView,Text
-} from 'react-native';
-// import { AppNavigator } from './src/navigations/main';
 import Splash from './src/screens/splashscreen/splash';
 import Editor from './src/screens/editorscreen/Index';
 import MainEditor from './src/screens/Storyscreen/mainEditor';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import {ActionContextProvider} from './src/store/action-context';
 
 const Stack = createStackNavigator();
 
 const App = () => {
 
   return (
-    <>
-    <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{ headerShown: false }}
-                initialRouteName={'Splash'}>
-                <Stack.Screen name="Splash" component={Splash} />
-                <Stack.Screen name="Editor" component={Editor} />
-                <Stack.Screen name="MainEditor" component={MainEditor} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    </>
+    <ActionContextProvider>
+
+      <NavigationContainer>
+
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName={'Splash'}>
+          <Stack.Screen name="Splash" component={Splash} />
+          <Stack.Screen name="Editor" component={Editor} />
+          <Stack.Screen name="MainEditor" component={MainEditor} />
+        </Stack.Navigator>
+
+      </NavigationContainer>
+    </ActionContextProvider>
   );
 };
+
 export default App;

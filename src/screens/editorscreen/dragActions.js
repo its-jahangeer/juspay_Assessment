@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, Image, View, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList } from 'react-native';
 import Material from "react-native-vector-icons/MaterialCommunityIcons";
+import { useContext } from 'react/cjs/react.development';
+import ActionContext from '../../store/action-context';
 
 const DragActions = (props) => {
+  const context = useContext(ActionContext)
   const [isActive, setActive] = useState(false);
 
   const HandleClick = () => {
@@ -15,7 +18,7 @@ const DragActions = (props) => {
   const renderItem = ({ item,index }) => {
 
     return (
-      <TouchableOpacity style={{ backgroundColor: '#65b2db', margin: 5 }} onPress={() => props.deleteItem(index)} >
+      <TouchableOpacity style={{ backgroundColor: '#65b2db', margin: 5 }} onPress={() => {context.deleteItem(index)}} >
         <Text style={{ fontSize: 12, color: 'white', textAlign: 'center', padding: 10 }}>{item.text}</Text>
       </TouchableOpacity>
     )
@@ -37,7 +40,7 @@ const DragActions = (props) => {
       </View>
       <FlatList
         horizontal={false}
-        data={props.selectedActions}
+        data={context.selectedActionList}
         renderItem={renderItem}
         keyExtractor={(item,index) => item.id+index.toString()}
         showsHorizontalScrollIndicator={false}

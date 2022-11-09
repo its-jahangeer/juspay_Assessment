@@ -1,13 +1,17 @@
 import React from 'react';
 import { SafeAreaView, Text, Image, FlatList, View, TouchableOpacity } from 'react-native';
 import Material from "react-native-vector-icons/MaterialCommunityIcons";
+import { useContext } from 'react/cjs/react.development';
+import ActionContext from '../../store/action-context';
 
 const Listscreen = (props) => {
+
+  const context = useContext(ActionContext);
 
   const renderList = ({ item }) => {
 
     return (
-      <TouchableOpacity style={{ backgroundColor: '#65b2db', margin: 5 }} onPress={() => props.selectItem(item)}>
+      <TouchableOpacity style={{ backgroundColor: '#65b2db', margin: 5 }} onPress = {() => context.updateSelectedActionList(item)}>
         <Text style={{ fontSize: 12, color: 'white', textAlign: 'center', padding: 10 }}>{item.text}</Text>
       </TouchableOpacity>
     )
@@ -20,7 +24,7 @@ const Listscreen = (props) => {
       </View>
       <FlatList
         horizontal={false}
-        data={props.actions}
+        data={context.defaultActionList}
         renderItem={renderList}
         keyExtractor={(item) => item.id}
         showsHorizontalScrollIndicator={false}
