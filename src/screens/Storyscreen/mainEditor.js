@@ -9,6 +9,7 @@ import Draggable from 'react-native-draggable';
 import Axis from './Axis';
 import { moveX50 } from '../../utils/actions';
 import CatImage from "./image";
+import { color } from 'react-native-reanimated';
 
 const MainEditor = (props) => {
  
@@ -49,6 +50,9 @@ const MainEditor = (props) => {
         //  setyAxis(gestureHandlers.moveY)
         }
           minX={5} minY={5} maxX={380} maxY={380} renderSize={80}  /> */}
+        <View style={{backgroundColor:'#5394fc',alignItems:'center',borderRadius:20,height:20,width:50}}>
+         <Text style={{color:'#fff',fontSize:10,textAlign:'center'}}>Hello</Text>
+        </View>
 
         <TouchableOpacity onPress={playHandler} style={{backgroundColor:'#5394fc',width:40,height:40,borderRadius:40/2,justifyContent:'center',position:"absolute",bottom:11,right:8}}>
            <Material name="play" size={30} color="#fff" style={{alignSelf:'center'}} />
