@@ -1,50 +1,47 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
-import DraggableFlatList from 'react-native-draggable-flatlist';
-
-const exampleData = [...Array(20)].map((d, index) => ({
-  key: `item-${index}`, // For example only -- don't use index as your key!
-  label: index,
-  backgroundColor: `rgb(${Math.floor(Math.random() * 255)}, ${index *
-  5}, ${132})`
+import { Text, TouchableOpacity, StyleSheet } from "react-native";
+ 
+import FlatList from "react-native-drag-flatlist";
+ 
+const colors = ["#d3f261", "#7cb305", "#5b8c00", "#3f6600", "#254000"];
+ 
+const originalData = new Array(100).fill(0).map((item, index) => ({
+  text: index,
+  // color: colors[index % colors.length]
 }));
-
+ 
 const FuncExample = () => {
-  const [ data, setData ] = useState(exampleData);
-  const renderItem = ({ item, index, drag, isActive }) => {
-    return (
-      <TouchableOpacity
-        style={{
-          height: 100,
-          backgroundColor: isActive ? "blue" : item.backgroundColor,
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-        onLongPress={drag}
-      >
-        <Text
-          style={{
-            fontWeight: "bold",
-            color: "white",
-            fontSize: 32
-          }}
-        >
-          {item.label}
-        </Text>
-      </TouchableOpacity>
-    );
-  };
-
+  const [data, setData] = useState(originalData);
+ 
+  const keyExtractor = item => item.text.toString();
+ 
+  const renderItem = ({ item, drag }) => (
+    <TouchableOpacity
+      style={[styles.item,]}
+      onLongPress={drag}
+    >
+      <Text>{item.text}</Text>
+    </TouchableOpacity>
+  );
+ 
   return (
-    <View style={{ flex: 1 }}>
-      <DraggableFlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => `draggable-item-${item.key}`}
-        onDragEnd={({ d }) => setData({ d })}
-      />
-    </View>
-  )
+    <FlatList
+      data={data}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
+      onMoveEnd={setData}
+    />
+  );
 };
-
+ 
+const styles = StyleSheet.create({
+  item: {
+    justifyContent: "center",
+    alignItems: "center",
+    // width: 100,
+    height: 100,
+    flex:1,
+  }
+});
+ 
 export default FuncExample;

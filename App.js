@@ -15,6 +15,7 @@ import {
 import Splash from './src/screens/splashscreen/splash';
 import Editor from './src/screens/editorscreen/Index';
 import MainEditor from './src/screens/Storyscreen/mainEditor';
+import FuncExample from './src/screens/editorscreen/trail';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -32,6 +33,8 @@ const App = () => {
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="Editor" component={Editor} />
                 <Stack.Screen name="MainEditor" component={MainEditor} />
+                <Stack.Screen name="FuncExample" component={FuncExample} />
+                
             </Stack.Navigator>
         </NavigationContainer>
     </>

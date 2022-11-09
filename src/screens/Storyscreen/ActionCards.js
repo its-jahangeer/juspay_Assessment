@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
-import {SafeAreaView, Text, Image,FlatList,View, TouchableOpacity,StyleSheet} from 'react-native';
+import {SafeAreaView, Text, Image,FlatList,View, TouchableOpacity,StyleSheet, LayoutAnimation} from 'react-native';
 import Material from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const Listscreen = () => {
      
-    const [data, setData] = useState(dummyData);
+    var [data, setData] = useState(dummyData);
 
     const dummyData = [
         {
@@ -35,13 +35,28 @@ const Listscreen = () => {
         },
       ];
 
+      // var lastIndex = dummyData.lastIndexOf();
+      // console.log(lastIndex);
+
       const removeItem = (id) => {
         let arr = data.filter(function(item) {
-          return item.id !== id
+          return item.id !== id;
         })
         setData(arr);
+        LayoutAnimation.configureNext(layoutAnimConfig);
       };
 
+      const layoutAnimConfig = {
+        duration : 300,
+        update : {
+          type:LayoutAnimation.Types.easeInEaseOut,
+          property: LayoutAnimation.Properties.opacity,
+        },
+      };
+ 
+      useState(()=>{
+        setData(dummyData);
+      },[]);
       
 
    const renderList = ({ item, index }) => {
@@ -50,13 +65,12 @@ const Listscreen = () => {
            <>
                 <TouchableOpacity
                   style={styles.cardContainer}
-                  onPress={() => removeItem(item.id)}
                 >
                   <View style={[styles.card, {backgroundColor: item.color}]}>
                     <Text style={styles.text}>{item.name}</Text>
                   </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={{backgroundColor:'#5394fc',width:25,height:25,borderRadius:25/2,justifyContent:'center',position:"absolute",top:-5,right:1}}>
+                <TouchableOpacity onPress={() => removeItem(item.id)} style={{backgroundColor:'#5394fc',width:25,height:25,borderRadius:25/2,justifyContent:'center',position:"absolute",top:-5,right:1}}>
                 <Material name="delete" size={16} color="#fff" style={{alignSelf:'center'}} />
               </TouchableOpacity>
               </>
@@ -68,11 +82,11 @@ const Listscreen = () => {
      showsHorizontalScrollIndicator={false}
      contentContainerStyle={styles.flatList}
      horizontal={true}
-     data={dummyData}
+     data={data}
      renderItem={renderList}
-     keyExtractor={(item, index) => index.toString()}
+     keyExtractor={(item, index) => item.id.toString()}
                 />
-                
+
   </>;
 };
 
