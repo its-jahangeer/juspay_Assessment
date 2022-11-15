@@ -33,32 +33,10 @@ const normalize = size => {
 };
 
 const color = {
-  Themecolor: '#054AA9',
-  Themecolor2: '#054AA9aa',
-  ThemecolorLight: '#D6E8FA',
-  ThemecolorLight1: '#054189',
-  lightYellow: '#FFE145',
-  orange: '#D48601',
-  white: '#FFFFFF',
-  silver: '#C7C7C7',
-  lightgray: '#C7C7C7aa',
-  brown: '#2A0500',
-  black: '#000000',
-  golden: '#D79014',
-  gray: '#CCC3C2',
-  lightblack: '#1E1E1E',
-  lightblue: '#45C0FF',
-  red: '#FF4C34',
-  greydropdown: '#E9ECEF',
-  greylight: 'lightgrey',
-  greydark: 'darkgrey',
-  filterColor: '#F6F6F6',
-  green: '#219618',
-  orange: '#FB9901',
-  blue: '#3366CC',
+  Themecolor: '#fff',
+  Bluecolor:'#5394fc',
+  
 };
-
-//const Splash_Gradient = ['#CC262E', '#660E14'];
 
 const fonts = {
   font_bold: 'bold',

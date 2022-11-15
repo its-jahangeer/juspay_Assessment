@@ -1,14 +1,12 @@
 import { View, Text,Image,Animated, TouchableHighlight } from 'react-native'
 import React, { useEffect } from 'react'
 import Images from '../../Assets/images';
-import { transform } from '@babel/core';
-import { Easing } from 'react-native-reanimated';
-
+import { abs, Easing } from 'react-native-reanimated';
+import Rotate from './rotate';
 const CatImage = (function(){
 
 
-
-    let rotateValueHolder = new  Animated.Value(0);
+    let rotateValueHolder = new Animated.Value(0);
 
     const startImageRotationFunction = () =>{
         rotateValueHolder.setValue(0);
@@ -17,22 +15,12 @@ const CatImage = (function(){
             duration:3000,
             easing:Easing.linear,
             useNativeDriver:false
-        }).start(()=>startImageRotationFunction())
-    }
+        }).start(()=>startImageRotationFunction().setValue(0))}
 
     const RotateData = rotateValueHolder.interpolate({
      inputRange:[0,1],
      outputRange:['0deg','360deg']
     });
-
-//     useEffect(()=>{
-//     rotateValueHolder.setValue(0);
-//     Animated.timing(rotateValueHolder,{
-//         toValue:1,
-//         duration:3000,
-//         easing:Easing.linear,
-//         useNativeDriver:false
-// },[]);
 
     return (
         <View>

@@ -1,16 +1,51 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import MainEditor from './mainEditor'
+import {View, Text, StyleSheet} from 'react-native';
+import React from 'react';
+import MainEditor from './mainEditor';
 const Axis = (props) => {
+  
+  let axisX = parseFloat(props.xdata).toFixed(1);
+  let axisY = parseFloat(props.ydata).toFixed(1);
+
   return (
-       <View style={{height:'10%',margin:7,backgroundColor:'white',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
-          <Text style={{fontSize:20,fontWeight:'600',color:'#000'}}>Sprit</Text>
-          <Text style={{borderWidth:1,padding:1,borderRadius:10,paddingHorizontal:9}}>Cat</Text>
-          <Text style={{fontSize:20,fontWeight:'600',color:'#000'}}>X</Text>
-          <Text style={{borderWidth:1,padding:2,borderRadius:10,paddingHorizontal:9}}>{props.axisx}</Text>
-          <Text style={{fontSize:20,fontWeight:'600',color:'#000'}}>Y</Text>
-          <Text style={{borderWidth:1,padding:2,borderRadius:10,paddingHorizontal:9}}>{props.axisy}</Text>
-         </View>
-  )
-}
+    <View style={styles.MainContainer}>
+      <Text style={styles.mainHeading}>Sprit</Text>
+      <Text style={styles.Heading}>Cat</Text>
+      <Text style={styles.coordinates}>X</Text>
+      <Text style={styles.Heading}>{axisX}</Text>
+      <Text style={styles.coordinates}>Y</Text>
+      <Text style={styles.Heading}>{axisY}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  MainContainer: {
+    height: '10%',
+    margin: 7,
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  mainImage: {
+    alignContent: 'center',
+  },
+  mainHeading: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#000',
+  },
+  Heading: {
+    borderWidth: 1,
+    padding: 1,
+    borderRadius: 8,
+    paddingHorizontal: 9,
+  },
+  coordinates: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#000',
+  },
+});
+
 export default Axis;
